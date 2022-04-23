@@ -1,4 +1,4 @@
-package calc
+package time
 
 import (
 	"fmt"

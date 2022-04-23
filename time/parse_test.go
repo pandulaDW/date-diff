@@ -1,4 +1,4 @@
-package calc
+package time
 
 import (
 	"github.com/pandulaDW/date-diff/config"

@@ -3,7 +3,7 @@ package input
 import (
 	"bufio"
 	"fmt"
-	"github.com/pandulaDW/date-diff/calc"
+	"github.com/pandulaDW/date-diff/time"
 	"os"
 	"strings"
 )
@@ -17,7 +17,7 @@ func ParseUserInput() {
 
 	fmt.Print("Enter date 1: ")
 	inputStr1, _ := reader.ReadString('\n')
-	d1, err := calc.ParseDate(strings.TrimSpace(inputStr1))
+	d1, err := time.ParseDate(strings.TrimSpace(inputStr1))
 	if err != nil {
 		_, _ = fmt.Fprintf(os.Stderr, "Error in parsing date:\n\t%s", err.Error())
 		os.Exit(1)
@@ -25,11 +25,11 @@ func ParseUserInput() {
 
 	fmt.Print("Enter date 2: ")
 	inputStr2, _ := reader.ReadString('\n')
-	d2, err := calc.ParseDate(strings.TrimSpace(inputStr2))
+	d2, err := time.ParseDate(strings.TrimSpace(inputStr2))
 	if err != nil {
 		_, _ = fmt.Fprintf(os.Stderr, "Error in parsing date:\n\t%s", err.Error())
 		os.Exit(1)
 	}
 
-	fmt.Printf("The date difference is %d days\n", calc.DateDiff(d1, d2))
+	fmt.Printf("The date difference is %d days\n", time.DateDiff(d1, d2))
 }
