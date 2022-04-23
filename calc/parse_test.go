@@ -13,8 +13,8 @@ func Test_parseDate(t *testing.T) {
 	}
 
 	tests := []test{
-		{"02-12-2023", nil, "format of 02-12-2023 is incorrect. use the format (dd|d)/(mm|m)/yyyy.\nFor example: 02/04/2012"},
-		{"02/2/", nil, "format of 02/2/ is incorrect. use the format (dd|d)/(mm|m)/yyyy.\nFor example: 02/04/2012"},
+		{"02-12-2023", nil, "format of 02-12-2023 is incorrect. use the format (dd|d)/(mm|m)/yyyy. For example: 02/04/2012 for 2nd April 2012"},
+		{"02/2/", nil, "format of 02/2/ is incorrect. use the format (dd|d)/(mm|m)/yyyy. For example: 02/04/2012 for 2nd April 2012"},
 		{"31/6/1883", nil, "year should be between 1990 and 2999 for 31/6/1883"},
 		{"31/6/3083", nil, "year should be between 1990 and 2999 for 31/6/3083"},
 		{"31/13/1983", nil, "month should be between 1 and 12 for 31/13/1983"},

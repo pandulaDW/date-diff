@@ -26,3 +26,24 @@ func Test_isLeapYear(t *testing.T) {
 		}
 	}
 }
+
+func Test_numDaysPerMonth(t *testing.T) {
+	type test struct {
+		month    uint8
+		year     uint
+		expected uint8
+	}
+
+	tests := []test{
+		{month: 12, year: 2009, expected: 31},
+		{month: 2, year: 2013, expected: 28},
+		{month: 2, year: 2016, expected: 29},
+	}
+
+	for _, tc := range tests {
+		actual := numDaysPerMonth(tc.month, tc.year)
+		if actual != tc.expected {
+			t.Fatalf("expected: %d, got: %d", tc.expected, actual)
+		}
+	}
+}

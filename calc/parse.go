@@ -11,7 +11,7 @@ import (
 func ParseDate(dStr string) (*config.Date, error) {
 	if !config.DateFormat.Match([]byte(dStr)) {
 		return nil,
-			fmt.Errorf("format of %s is incorrect. use the format (dd|d)/(mm|m)/yyyy.\nFor example: 02/04/2012", dStr)
+			fmt.Errorf("format of %s is incorrect. use the format (dd|d)/(mm|m)/yyyy. For example: 02/04/2012 for 2nd April 2012", dStr)
 	}
 
 	split := strings.Split(dStr, "/")
