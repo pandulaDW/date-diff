@@ -4,21 +4,6 @@ import (
 	"github.com/pandulaDW/date-diff/config"
 )
 
-// isLeapYear returns true if the given year is a leap year.
-// Returns false otherwise.
-func isLeapYear(year uint) bool {
-	return (year%4 == 0 && year%100 != 0) || year%400 == 0
-}
-
-// NumDaysPerMonth returns the number of days for a given month after
-// checking if the year is a leap year
-func NumDaysPerMonth(month uint8, year uint) uint8 {
-	if month == 2 && isLeapYear(year) {
-		return 29
-	}
-	return config.MonthDayMap[month]
-}
-
 // getNumDaysSinceBaseDate returns the number of days passed since the base-date.
 //
 // This function assumes that the base-date is set to be {config.BaseYear}/01/01.
@@ -39,7 +24,7 @@ func getNumDaysSinceBaseDate(date *config.Date) uint {
 	// calculate days until the current month
 	var currentMonth uint8 = 1
 	for currentMonth < date.Month {
-		numDays += uint(NumDaysPerMonth(currentMonth, date.Year))
+		numDays += uint(numDaysPerMonth(currentMonth, date.Year))
 		currentMonth += 1
 	}
 

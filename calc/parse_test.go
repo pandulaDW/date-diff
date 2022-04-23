@@ -1,4 +1,4 @@
-package input
+package calc
 
 import (
 	"github.com/pandulaDW/date-diff/config"
@@ -24,7 +24,7 @@ func Test_parseDate(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		actualDate, actualError := parseDate(tc.input)
+		actualDate, actualError := ParseDate(tc.input)
 		if actualDate != tc.expectedDate {
 			t.Fatalf("expected date: %v, got: %v", tc.expectedDate, actualDate)
 		}
@@ -33,7 +33,7 @@ func Test_parseDate(t *testing.T) {
 		}
 	}
 
-	actual, err := parseDate("5/06/1983")
+	actual, err := ParseDate("5/06/1983")
 	expected := config.NewDate(1983, 6, 5)
 	if *actual != expected {
 		t.Fatalf("expected: %v, got: %v", expected, actual)
