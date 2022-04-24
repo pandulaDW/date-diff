@@ -15,6 +15,7 @@ import (
 func ParseUserInput() {
 	reader := bufio.NewReader(os.Stdin)
 
+	fmt.Println("Date diff calculator...")
 	fmt.Print("Enter date 1: ")
 	inputStr1, _ := reader.ReadString('\n')
 	d1, err := time.ParseDate(strings.TrimSpace(inputStr1))
