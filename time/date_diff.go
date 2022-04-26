@@ -37,6 +37,9 @@ func DateDiff(date1 *config.Date, date2 *config.Date) uint {
 	diff1FromBase := getNumDaysSinceBaseDate(date1)
 	diff2FromBase := getNumDaysSinceBaseDate(date2)
 
+	if diff1FromBase == diff2FromBase {
+		return 0
+	}
 	if diff1FromBase < diff2FromBase {
 		return diff2FromBase - diff1FromBase - 1
 	}

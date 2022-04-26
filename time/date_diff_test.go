@@ -38,6 +38,7 @@ func TestDateDiff(t *testing.T) {
 		{input1: config.NewDate(1983, 6, 2), input2: config.NewDate(1983, 6, 22), expected: 19},
 		{input1: config.NewDate(1984, 7, 4), input2: config.NewDate(1984, 12, 25), expected: 173},
 		{input1: config.NewDate(1989, 1, 3), input2: config.NewDate(1983, 8, 3), expected: 1979},
+		{input1: config.NewDate(2000, 4, 23), input2: config.NewDate(2000, 4, 23), expected: 0},
 	}
 
 	for _, tc := range tests {
